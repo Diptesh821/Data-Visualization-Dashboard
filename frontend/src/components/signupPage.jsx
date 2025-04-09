@@ -1,18 +1,60 @@
 // src/components/SignupPage.jsx
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-const BACKEND_URL =  import.meta.env.VITE_BACKEND_URL;
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 const SignupPage = () => {
   const navigate = useNavigate();
-  const [name, setName]         = useState('');
-  const [email, setEmail]       = useState('');
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError]       = useState('');
-  const [success, setSuccess]   = useState('');
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
+  const [passwordError, setPasswordError] = useState("");
+
+
+
+  // Utility function to validate password
+  const isPasswordValid = (pwd) => {
+    const minLength = 8;
+    const hasUppercase = /[A-Z]/.test(pwd);
+    const hasLowercase = /[a-z]/.test(pwd);
+    const hasNumber = /\d/.test(pwd);
+    const hasSpecialChar = /[^A-Za-z0-9]/.test(pwd);
+
+    return (
+      pwd.length >= minLength &&
+      hasUppercase &&
+      hasLowercase &&
+      hasNumber &&
+      hasSpecialChar
+    );
+  };
+
+  // Update password in state and check validity
+  const handlePasswordChange = (e) => {
+    const newPassword = e.target.value;
+    setPassword(newPassword);
+
+    if (!isPasswordValid(newPassword)) {
+      setPasswordError(
+        "Password must be at least 8 characters, include uppercase, lowercase, number, and special character."
+      );
+    } else {
+      setPasswordError("");
+    }
+  };
+
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Final check before submission
+    if (!isPasswordValid(password)) {
+      alert("Password does not meet the complexity requirements.");
+      return;
+    }
     setError('');
     setSuccess('');
     try {
@@ -65,10 +107,15 @@ const SignupPage = () => {
               className="form-control"
               placeholder="Password"
               value={password}
-              onChange={e => setPassword(e.target.value)}
+              onChange={handlePasswordChange}
               required
             />
           </div>
+          {/* Error Message */}
+          {passwordError && (
+            <p className="text-danger small mb-4">{passwordError}</p>
+          )}
+
           {error && <div className="alert alert-danger">{error}</div>}
           {success && <div className="alert alert-success">{success}</div>}
           <button type="submit" className="btn btn-success w-100">Sign Up</button>
