@@ -64,16 +64,8 @@ const HomePage = () => {
             Our site requires third-party cookies for authentication.
             Please enable third-party cookies in your browser settings to continue.
           </p>
-          <p>
-            <strong>Chrome Instructions:</strong><br />
-            1. Open <code>chrome://settings/cookies</code> in your browser.<br />
-            or navigate via: <em>Settings &gt; Privacy and Security &gt; Third-Party Cookies</em><br />
-            2. Either choose <em>"Allow third-party cookies"</em>, or scroll to <em>"Sites allowed to use third-party cookies"</em><br />
-            3. Click "Add" and enter this site's domain.
-          </p>
-          <p>
-            After allowing cookies, click "OK" to proceed. You will not be able to use this site without it.
-          </p>
+        
+        
         </Modal.Body>
         <Modal.Footer>
           <Button variant="primary" onClick={handleAcceptPopup}>
