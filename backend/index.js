@@ -75,6 +75,9 @@ app.use("/post/sales",salesRoute);
 app.use("/test",cookieRoute);
 
 
+app.get('/health', (req, res) => {
+  res.status(200).send('OK');
+});
 
 
 
