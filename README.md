@@ -67,13 +67,6 @@ A full-stack web application that transforms raw business data into interactive 
 
 ---
 
-
-## 🙌 Acknowledgements
-
-This project was developed as part of my internship at **PRASUNET COMPANY**, under the theme *"Tech Bharat, Global Impact."*
-
----
-
 ## 📅 Final Deployment
 
 🔗 **Live Website:** https://visuanova.vercel.app
