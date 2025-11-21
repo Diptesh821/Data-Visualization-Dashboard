@@ -76,6 +76,7 @@ A full-stack web application that transforms raw business data into interactive 
 ## 📬 Contact
 
 **Diptesh Singh**  
-[LinkedIn](https://www.linkedin.com/in/diptesh-singh-50ba48257) • [Email](mailto:dipteshpiku@gmail.com)
+[LinkedIn](https://www.linkedin.com/in/diptesh15) • [Email](mailto:dipteshpiku@gmail.com)
 
 ```
+
